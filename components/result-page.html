@@ -22,19 +22,33 @@
             </div>
         </div>
     </nav>
-    <main class="result-page">
+    <main class="checker-page">
         <div>
-            <span>Check Plaigiarism</span>
-            <span id="txt-count">0-500 words</span>
+            <span>Result</span>
+            <img src="../Assets/images/download.svg">
         </div>
         <div>
-            <legend for="text-cont">Place your text here</legend>
-            <textarea id="text-cont" onkeyup="changeButtomBorder()">
-            </textarea>
+            <div>
+                <img src="../Assets/images/red-tick.svg">
+                <div id="plaigiarism-percent">75%</div>
+                Plaigarised
+            </div>
+            <div>
+                <img src="../Assets/images/green-tick.svg">
+                <div id="unique-percent">25%</div>
+                Unique
+            </div>
         </div>
         <div>
-            <a href="result-page.html">RUN</a>
-            <a>CANCEL</a>
+            <div>
+                <div id="plaigarised-resp"></div>
+                <div>Plagarised Site Spotted</div>
+                <a href="" id="link-to-site">https://en.wikipedia.org/wiki/Farmhouse</a>
+            </div>
+            <div>
+                <div id="unique-resp"></div>
+                <div>Unique</div>
+            </div>
         </div>
     </main>
     <footer>
