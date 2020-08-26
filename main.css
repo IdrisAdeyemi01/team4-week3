@@ -159,6 +159,7 @@ main {
   font-size: 1.5vw;
   font-family: 'Segoe UI', sans-serif;
   padding: 2% 5%;
+  text-align: left;
 }
 .checker-page > div:nth-child(3) {
   display: flex;
