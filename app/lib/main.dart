@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:plagiarismchecker/Pages/about_page.dart';
+import 'package:plagiarismchecker/Pages/confirming_page.dart';
 import 'package:plagiarismchecker/Pages/download_page.dart';
 import 'package:plagiarismchecker/Pages/home_page.dart';
 import 'package:plagiarismchecker/Pages/check_page.dart';
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: DownloadPage(),
+      home: HomePage (),
     );
   }
 }

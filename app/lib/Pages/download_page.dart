@@ -8,6 +8,7 @@ class DownloadPage extends StatefulWidget {
 class _DownloadPageState extends State<DownloadPage> {
 
   String _val = 'doc';
+  List<String> dropdownItems = ['doc', 'docx', 'pdf'];
 
   @override
   Widget build(BuildContext context) {
@@ -29,45 +30,83 @@ class _DownloadPageState extends State<DownloadPage> {
                 color: Colors.white, )),
         ],
       ),
-      body: ListView(
-        children: [
-          Text('Download report',
+      body: Container(
+        alignment: Alignment.centerLeft,
+        margin: EdgeInsets.all(35),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Download report',
             style: TextStyle(
-              height: 35,
               fontSize: 26,
               color: Color(0xFFFDB600)
             ),),
-          SizedBox(height: 40,),
-          Container(
-            child: DropdownButton(
-                value: _val,
-                items: [
-                  DropdownMenuItem(
-                    child: Text('doc'),
-                    value: 'doc',
-                  ),
-                  DropdownMenuItem(
-                    child: Text('docx'),
-                    value: 'docx',
-                  ),
-                  DropdownMenuItem(
-                    child: Text('pdf'),
-                    value: 'pdf',
-                  )
-                ],
-                onChanged: (value){
-                  setState(() {
-                    _val = value;
-                  });
-                }),
-          ),
-          Center(
-            child: RaisedButton(onPressed: null,
-            child: Text('Download',),
-
+            SizedBox(height: 15,),
+            Container(
+              padding : EdgeInsets.only(left: 10, right: 15),
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                color: Color(0xFFFFFBFB),
+                border: Border.all(
+                  color: Colors.black12
+                )
+              ),
+              child: DropdownButtonHideUnderline(
+                child: DropdownButton<String>(
+                 isExpanded: true,
+                  icon: Icon(Icons.keyboard_arrow_down),
+                  value: _val,
+                    items: dropdownItems.map<DropdownMenuItem<String>>((String value){
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                    onChanged: (String newValue){
+                    setState(() {
+                      _val = newValue;
+                    });
+                    }),
+              ),
             ),
-          )
-        ],
+            SizedBox(height: 15,),
+            Center(
+              child: Container(
+                height: 50,
+                width: 200,
+                decoration: BoxDecoration(
+                  color: Colors.black12,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: FlatButton(child: Text('Download now'),
+                onPressed: () async{
+                 await showDialog(
+                   context: context,
+                   builder: (BuildContext context){
+                    return AlertDialog(
+                       title: Text('Do you want to download?'),
+                       contentTextStyle: TextStyle(
+                         fontSize: 22,
+                         fontWeight: FontWeight.w600,
+                       ),
+                       actions: [
+                         FlatButton(
+                           onPressed: (){},
+                           child: Text('Yes'),
+                         ),
+                         FlatButton(
+                           onPressed: (){},
+                           child: Text('No'),
+                         )
+                       ],
+                     );
+                   }
+                 );
+                },),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
