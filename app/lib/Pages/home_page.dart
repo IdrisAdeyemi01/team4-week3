@@ -6,6 +6,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFFEFCF5),
+
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -30,7 +31,30 @@ class HomePage extends StatelessWidget {
                 child: Text('By Team 4 \n ecxinternship 2020',
                 textAlign: TextAlign.center,),
               ),
-            )
+            ),
+            FlatButton(
+              onPressed: (){
+                Navigator.pushNamed(context, '/check_page');
+              },
+              child: Container(
+                height: 100,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.yellow,
+                    shape: BoxShape.rectangle
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Next',
+                    style: TextStyle(
+                      fontSize: 20
+                    ),),
+                    Icon(Icons.chevron_right, size: 20,)
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),

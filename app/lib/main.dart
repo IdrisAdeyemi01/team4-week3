@@ -24,8 +24,15 @@ class MyApp extends StatelessWidget {
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomePage (),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => HomePage(),
+        '/check_page' : (context) => CheckPage(),
+        '/result_page': (context) => ResultPage(),
+        '/download_page': (context) => DownloadPage(),
+        '/confirming_page': (context) => ConfirmingPage(),
+        '/about_page': (context) => AboutPage()
+      },
     );
   }
 }
-

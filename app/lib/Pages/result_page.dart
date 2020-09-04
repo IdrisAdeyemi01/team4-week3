@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 
 class ResultPage extends StatefulWidget {
   @override
+  ResultPage({this.plagiarisedPercent, this.uniquePercent});
+  final int plagiarisedPercent;
+  final int uniquePercent;
   _ResultPageState createState() => _ResultPageState();
 }
 
@@ -18,7 +21,9 @@ class _ResultPageState extends State<ResultPage> {
         title: Image.asset('images/logo.png', color: Colors.white,),
         actions: [
           FlatButton(
-              onPressed: (){},
+              onPressed: (){
+                Navigator.pushNamed(context, '/');
+              },
               child: Image.asset('images/home-icon.png')),
           FlatButton(
               onPressed: (){},
@@ -39,7 +44,10 @@ class _ResultPageState extends State<ResultPage> {
                   style: TextStyle(
                     fontSize: 24,
                   ),),
-                  Image.asset('images/download-icon.png')
+                  FlatButton(child: Image.asset('images/download-icon.png'),
+                  onPressed: (){
+                    Navigator.pushNamed(context, '/download_page');
+                  },)
                 ],
               ),
               Container(
@@ -78,7 +86,7 @@ class _ResultPageState extends State<ResultPage> {
 
                                 Padding(
                                   padding: const EdgeInsets.all(15.0),
-                                  child: Text('75%',
+                                  child: Text('${widget.plagiarisedPercent}%',
                                   style: TextStyle(
                                     color: Color(0xFFFF0000),
                                     fontWeight: FontWeight.bold,
@@ -125,7 +133,7 @@ class _ResultPageState extends State<ResultPage> {
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.all(15.0),
-                                  child: Text('75%',
+                                  child: Text('${widget.uniquePercent}%',
                                     style: TextStyle(
                                         color: Colors.black,
                                         fontWeight: FontWeight.bold,
